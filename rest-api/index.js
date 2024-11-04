@@ -21,7 +21,7 @@ app.get('/games', (req, res) =>
 // returns statuscode 404 - notfound
 app.get('/games/:id', (req, res) =>
 {    
-    if (typeof games[req.param.id - 1] === 'undefined')
+    if (typeof games[req.params.id - 1] === 'undefined')
     {
         return res.status(404).send(
             {error: "Game not found, game not gaming"});
@@ -59,6 +59,7 @@ app.delete('/games/:id', (req, res) =>
     games.splice(req.params.id -1, 1)
     res.status(204).send({error: 'Content not contenting (no content)'})
 })
+
 
 //app.put https://moodle.edu.ee/mod/assign/view.php?id=2705574
 
